@@ -12,6 +12,7 @@ css/style.css   Estilos. Los colores están en las variables de :root, al inicio
 js/main.js      Carrusel, menú en celulares y envío del formulario sin recargar
 contacto.php    Envía el correo (requiere hosting con PHP)
 assets/         Logos en SVG (símbolo y logo horizontal, versión clara y oscura)
+assets/img/     Fotos del carrusel (laboratorio, asesoría y cosméticos)
 ```
 
 ## Antes de publicar
@@ -45,3 +46,7 @@ El envío del correo solo se puede probar con la página publicada en un hosting
 | `#5CC2BC` aqua | Botones sobre fondo oscuro y detalles |
 | `#E6F3F1` menta | Fondos de secciones alternas |
 | `#F3D3C4` durazno | Ilustración de la tercera diapositiva |
+
+## Fotos
+
+Las fotos del carrusel son de [Pexels](https://www.pexels.com) (licencia gratuita, uso comercial permitido): autores pnw-prod, artempodrez y chokniti-khongchum.
