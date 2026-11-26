@@ -12,7 +12,7 @@ css/style.css   Estilos. Los colores están en las variables de :root, al inicio
 js/main.js      Carrusel, menú en celulares y envío del formulario sin recargar
 contacto.php    Envía el correo (requiere hosting con PHP)
 assets/         Logos en SVG (símbolo y logo horizontal, versión clara y oscura)
-assets/img/     Fotos del carrusel (laboratorio, asesoría y cosméticos)
+assets/img/     Fotos del carrusel (laboratorio, asesoría y cosméticos) y retrato de Gabriela
 ```
 
 ## Antes de publicar
