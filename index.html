@@ -3,80 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gabriela | Servicios</title>
-  <meta name="description" content="Página de Gabriela. Contáctame para conocer mis servicios.">
+  <title>Gabriela | Servicios profesionales</title>
+  <meta name="description" content="Servicios profesionales a la medida. Conoce lo que hacemos y escríbenos para cotizar.">
+  <meta name="theme-color" content="#245552">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="top">
 
-  <header class="barra">
-    <a href="#inicio" class="logo">Gabriela</a>
-    <nav>
-      <a href="#servicios">Servicios</a>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#contacto" class="boton-nav">Contacto</a>
-    </nav>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera-interior">
+      <a href="#top" class="marca">Gabriela</a>
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav id="menu" class="menu" aria-label="Principal">
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#innovacion">Innovación</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto" class="menu-contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="inicio" class="hero">
-      <h1>Hola, soy Gabriela</h1>
-      <p>Aquí va una frase corta que explique qué haces y cómo ayudas a tus clientes.</p>
-      <a href="#contacto" class="boton">Escríbeme</a>
+  <main id="contenido">
+
+    <section class="portada">
+      <div class="contenedor">
+        <h1>Soluciones claras para necesidades reales</h1>
+        <p class="portada-texto">Acompañamos a personas y empresas con un servicio cercano, ordenado y con resultados que se pueden medir.</p>
+        <a href="#contacto" class="boton">Solicitar una cotización</a>
+      </div>
     </section>
 
-    <section id="servicios" class="seccion">
-      <h2>Servicios</h2>
-      <div class="tarjetas">
-        <article class="tarjeta">
-          <h3>Servicio 1</h3>
-          <p>Describe aquí en una o dos líneas en qué consiste este servicio.</p>
+    <section id="nosotros" class="seccion">
+      <div class="contenedor angosto">
+        <h2>Sobre nosotros</h2>
+        <p>Somos un equipo con experiencia en el rubro. Escribe aquí en pocas líneas quiénes son, desde cuándo trabajan y a quiénes atienden.</p>
+        <p>Cuenta cómo trabajan y qué los diferencia: la atención directa, los plazos que cumplen o la forma de resolver cada caso.</p>
+        <p>Explica también qué puede esperar una persona que los contrata, desde el primer contacto hasta la entrega final.</p>
+        <p class="destacado">Cuéntanos qué necesitas y te respondemos en menos de 24 horas.</p>
+      </div>
+    </section>
+
+    <section id="servicios" class="seccion alterna">
+      <div class="contenedor">
+        <h2>Servicios</h2>
+        <p class="intro">Una breve introducción que resuma todo lo que ofreces, para que el visitante sepa si está en el lugar correcto.</p>
+
+        <div class="banner" role="img" aria-label="Espacio para una imagen representativa de los servicios"></div>
+
+        <ol class="servicios">
+          <li>
+            <span class="numero" aria-hidden="true">1</span>
+            <div>
+              <h3>Primer servicio</h3>
+              <p>Describe en dos o tres líneas qué incluye, para quién es y qué resultado obtiene el cliente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="numero" aria-hidden="true">2</span>
+            <div>
+              <h3>Segundo servicio</h3>
+              <p>Describe en dos o tres líneas qué incluye, para quién es y qué resultado obtiene el cliente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="numero" aria-hidden="true">3</span>
+            <div>
+              <h3>Tercer servicio</h3>
+              <p>Describe en dos o tres líneas qué incluye, para quién es y qué resultado obtiene el cliente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="numero" aria-hidden="true">4</span>
+            <div>
+              <h3>Cuarto servicio</h3>
+              <p>Describe en dos o tres líneas qué incluye, para quién es y qué resultado obtiene el cliente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="numero" aria-hidden="true">5</span>
+            <div>
+              <h3>Quinto servicio</h3>
+              <p>Describe en dos o tres líneas qué incluye, para quién es y qué resultado obtiene el cliente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="numero" aria-hidden="true">6</span>
+            <div>
+              <h3>Sexto servicio</h3>
+              <p>Describe en dos o tres líneas qué incluye, para quién es y qué resultado obtiene el cliente.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="cierre">¿No ves lo que buscas? Escríbenos y revisamos tu caso.</p>
+      </div>
+    </section>
+
+    <section id="innovacion" class="seccion">
+      <div class="contenedor angosto">
+        <h2>Innovación</h2>
+        <p class="intro">Cómo mejoramos la forma de trabajar para entregar más valor a cada cliente.</p>
+        <ul class="lista-destacada">
+          <li><strong>Primera mejora.</strong> Explica en una línea qué hacen distinto y qué gana el cliente.</li>
+          <li><strong>Segunda mejora.</strong> Explica en una línea qué hacen distinto y qué gana el cliente.</li>
+          <li><strong>Tercera mejora.</strong> Explica en una línea qué hacen distinto y qué gana el cliente.</li>
+          <li><strong>Cuarta mejora.</strong> Explica en una línea qué hacen distinto y qué gana el cliente.</li>
+          <li><strong>Quinta mejora.</strong> Explica en una línea qué hacen distinto y qué gana el cliente.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="equipo" class="seccion alterna">
+      <div class="contenedor angosto">
+        <h2>Equipo</h2>
+
+        <article class="perfil">
+          <div class="foto" role="img" aria-label="Espacio para la foto de Gabriela">G</div>
+          <div>
+            <h3>Gabriela</h3>
+            <p class="cargo">Fundadora y directora</p>
+            <p>Resume su formación, su experiencia y lo que la motiva a hacer este trabajo.</p>
+          </div>
         </article>
-        <article class="tarjeta">
-          <h3>Servicio 2</h3>
-          <p>Describe aquí en una o dos líneas en qué consiste este servicio.</p>
+
+        <article class="perfil">
+          <div class="foto" role="img" aria-label="Espacio para la foto de otro integrante">N</div>
+          <div>
+            <h3>Nombre del integrante</h3>
+            <p class="cargo">Cargo o especialidad</p>
+            <p>Resume su formación, su experiencia y el rol que cumple dentro del equipo.</p>
+          </div>
         </article>
-        <article class="tarjeta">
-          <h3>Servicio 3</h3>
-          <p>Describe aquí en una o dos líneas en qué consiste este servicio.</p>
+
+        <article class="perfil">
+          <div class="foto" role="img" aria-label="Espacio para la foto de otro integrante">N</div>
+          <div>
+            <h3>Nombre del integrante</h3>
+            <p class="cargo">Cargo o especialidad</p>
+            <p>Resume su formación, su experiencia y el rol que cumple dentro del equipo.</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="sobre-mi" class="seccion alterna">
-      <h2>Sobre mí</h2>
-      <p class="texto-centrado">Cuenta aquí tu historia, tu experiencia y por qué los clientes pueden confiar en ti.</p>
-    </section>
+    <section id="contacto" class="seccion contacto">
+      <div class="contenedor">
+        <h2>Contacto</h2>
+        <p class="intro">Cuéntanos qué necesitas. Si prefieres, escríbenos o llámanos directamente.</p>
 
-    <section id="contacto" class="seccion">
-      <h2>Contacto</h2>
-      <p class="texto-centrado">Déjame tu mensaje y te responderé lo antes posible.</p>
+        <div class="contacto-grilla">
+          <ul class="datos">
+            <li>
+              <span class="dato-titulo">Correo</span>
+              <a href="mailto:contacto@tudominio.cl">contacto@tudominio.cl</a>
+            </li>
+            <li>
+              <span class="dato-titulo">Teléfono</span>
+              <a href="tel:+56900000000">+56 9 0000 0000</a>
+            </li>
+            <li>
+              <span class="dato-titulo">Dirección</span>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Santiago%2C+Chile" target="_blank" rel="noopener">Calle 123, Santiago, Chile<span class="visualmente-oculto"> (abre Google Maps en una pestaña nueva)</span></a>
+            </li>
+          </ul>
 
-      <div id="aviso" class="aviso" hidden></div>
+          <div>
+            <div id="aviso" class="aviso" role="status" tabindex="-1" hidden></div>
 
-      <form id="form-contacto" action="contacto.php" method="post" novalidate>
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required maxlength="100" autocomplete="name">
+            <form id="form-contacto" action="contacto.php" method="post" novalidate>
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required maxlength="100" autocomplete="name">
 
-        <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" required maxlength="150" autocomplete="email">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" required maxlength="150" autocomplete="email">
 
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required maxlength="3000"></textarea>
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required maxlength="3000"></textarea>
 
-        <!-- Campo trampa contra robots: las personas no lo ven -->
-        <div class="trampa" aria-hidden="true">
-          <label for="sitio">No llenar este campo</label>
-          <input type="text" id="sitio" name="sitio" tabindex="-1" autocomplete="off">
+              <!-- Campo trampa contra robots: las personas no lo ven -->
+              <div class="trampa" aria-hidden="true">
+                <label for="sitio">No llenar este campo</label>
+                <input type="text" id="sitio" name="sitio" tabindex="-1" autocomplete="off">
+              </div>
+
+              <button type="submit" class="boton">Enviar mensaje</button>
+            </form>
+          </div>
         </div>
-
-        <button type="submit" class="boton">Enviar mensaje</button>
-      </form>
+      </div>
     </section>
+
   </main>
 
   <footer class="pie">
-    <p>&copy; <span id="anio"></span> Gabriela. Todos los derechos reservados.</p>
+    <div class="contenedor pie-interior">
+      <nav aria-label="Pie de página">
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#innovacion">Innovación</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <p>&copy; <span id="anio"></span> Gabriela. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>
