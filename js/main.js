@@ -17,12 +17,23 @@ menu.querySelectorAll('a').forEach((enlace) => enlace.addEventListener('click', 
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarMenu(); });
 
 // ---------- Carrusel de la portada ----------
+const INTERVALO = 5000; // milisegundos entre diapositivas (5 segundos)
+
 const carrusel = document.querySelector('.carrusel');
 const ventana = carrusel.querySelector('.carrusel-ventana');
 const slides = Array.from(carrusel.querySelectorAll('.slide'));
 const puntos = carrusel.querySelector('.puntos');
 const contador = carrusel.querySelector('.contador');
+const botonPausa = carrusel.querySelector('.flecha-pausa');
+const iconoPausa = botonPausa.querySelector('.icono-pausa');
+const iconoPlay = botonPausa.querySelector('.icono-play');
+
+const reducirMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 let actual = 0;
+let temporizador = null;
+let detenido = reducirMovimiento;  // la persona (o su dispositivo) pidió que no avance solo
+let enPausa = false;               // pausa temporal: mouse encima, teclado dentro o pestaña oculta
 
 slides.forEach((_, i) => {
   const boton = document.createElement('button');
@@ -30,9 +41,21 @@ slides.forEach((_, i) => {
   boton.className = 'punto';
   boton.setAttribute('aria-label', 'Ir a la diapositiva ' + (i + 1));
   boton.appendChild(document.createElement('span'));
-  boton.addEventListener('click', () => mostrar(i, true));
+  boton.addEventListener('click', () => irPorUsuario(i));
   puntos.appendChild(boton);
 });
+
+function programar() {
+  clearTimeout(temporizador);
+  if (detenido || enPausa) return;
+  temporizador = setTimeout(() => mostrar(actual + 1, false), INTERVALO);
+}
+
+function actualizarBotonPausa() {
+  iconoPausa.hidden = detenido;
+  iconoPlay.hidden = !detenido;
+  botonPausa.setAttribute('aria-label', detenido ? 'Reanudar el avance automático' : 'Pausar el avance automático');
+}
 
 function mostrar(indice, avisar) {
   actual = (indice + slides.length) % slides.length;
@@ -44,15 +67,38 @@ function mostrar(indice, avisar) {
   contador.textContent = (actual + 1) + ' / ' + slides.length;
   // Solo se anuncia a lectores de pantalla cuando la persona cambia de diapositiva
   ventana.setAttribute('aria-live', avisar ? 'polite' : 'off');
+  programar();
 }
 
-carrusel.querySelector('.flecha-ant').addEventListener('click', () => mostrar(actual - 1, true));
-carrusel.querySelector('.flecha-sig').addEventListener('click', () => mostrar(actual + 1, true));
+// Si la persona elige una diapositiva, el avance automático se detiene
+function irPorUsuario(indice) {
+  detenido = true;
+  actualizarBotonPausa();
+  mostrar(indice, true);
+}
+
+carrusel.querySelector('.flecha-ant').addEventListener('click', () => irPorUsuario(actual - 1));
+carrusel.querySelector('.flecha-sig').addEventListener('click', () => irPorUsuario(actual + 1));
+
+botonPausa.addEventListener('click', () => {
+  detenido = !detenido;
+  actualizarBotonPausa();
+  programar();
+});
 
 carrusel.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') mostrar(actual - 1, true);
-  if (e.key === 'ArrowRight') mostrar(actual + 1, true);
+  if (e.key === 'ArrowLeft') irPorUsuario(actual - 1);
+  if (e.key === 'ArrowRight') irPorUsuario(actual + 1);
 });
+
+// Pausa temporal: mouse encima, foco del teclado dentro o pestaña oculta
+carrusel.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { enPausa = true; programar(); } });
+carrusel.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { enPausa = false; programar(); } });
+carrusel.addEventListener('focusin', () => { enPausa = true; programar(); });
+carrusel.addEventListener('focusout', (e) => {
+  if (!carrusel.contains(e.relatedTarget)) { enPausa = false; programar(); }
+});
+document.addEventListener('visibilitychange', () => { enPausa = document.hidden; programar(); });
 
 // Deslizar con el dedo en celulares
 let inicioX = null;
@@ -60,10 +106,13 @@ ventana.addEventListener('touchstart', (e) => { inicioX = e.touches[0].clientX; 
 ventana.addEventListener('touchend', (e) => {
   if (inicioX === null) return;
   const dx = e.changedTouches[0].clientX - inicioX;
-  if (Math.abs(dx) > 50) mostrar(actual + (dx < 0 ? 1 : -1), true);
+  if (Math.abs(dx) > 50) irPorUsuario(actual + (dx < 0 ? 1 : -1));
   inicioX = null;
 });
 
+// Con "reducir movimiento" activado no hay avance automático ni botón de pausa
+if (reducirMovimiento) botonPausa.hidden = true;
+actualizarBotonPausa();
 mostrar(0, false);
 
 // ---------- Formulario de contacto ----------

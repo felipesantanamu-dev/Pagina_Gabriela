@@ -130,6 +130,7 @@ a:hover { color: var(--marino); }
 .flecha-sig { background: var(--aqua); border-color: var(--aqua); color: var(--marino); }
 .flecha-sig:hover { background: #fff; border-color: #fff; }
 .flecha svg { width: 20px; height: 20px; }
+.flecha-pausa[hidden], .flecha-pausa [hidden] { display: none; }
 
 .puntos { display: flex; align-items: center; margin-left: .5rem; }
 .punto { display: flex; align-items: center; padding: 17px 4px; border: 0; background: transparent; cursor: pointer; }
