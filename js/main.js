@@ -22,9 +22,6 @@ const ES_EN = {
   'carrusel': 'carousel',
   'diapositiva': 'slide',
   'Presentación': 'Introduction',
-  '1 de 3': '1 of 3',
-  '2 de 3': '2 of 3',
-  '3 de 3': '3 of 3',
   'Asesoría regulatoria para productos de salud': 'Regulatory advisory for health products',
   'Te acompañamos en el registro, la autorización y el cumplimiento de tus productos farmacéuticos, cosméticos y dispositivos médicos.': 'We support you with the registration, authorization and compliance of your pharmaceutical products, cosmetics and medical devices.',
   'Solicitar una cotización': 'Request a quote',
@@ -41,9 +38,6 @@ const ES_EN = {
   'Diapositiva siguiente': 'Next slide',
   'Pausar el avance automático': 'Pause automatic advance',
   'Reanudar el avance automático': 'Resume automatic advance',
-  'Ir a la diapositiva 1': 'Go to slide 1',
-  'Ir a la diapositiva 2': 'Go to slide 2',
-  'Ir a la diapositiva 3': 'Go to slide 3',
 
   // Sobre nosotros
   'Somos una consultora de asuntos regulatorios para productos de salud: medicamentos, cosméticos y dispositivos médicos.': 'We are a regulatory affairs consultancy for health products: medicines, cosmetics and medical devices.',
@@ -118,6 +112,25 @@ const ES_EN = {
   'No se pudo enviar el mensaje. Inténtalo de nuevo.': 'The message could not be sent. Please try again.',
   'No se pudo enviar el mensaje. Revisa tu conexión e inténtalo de nuevo.': 'The message could not be sent. Check your connection and try again.'
 };
+
+// Etiquetas numeradas del carrusel (1 de 6, Ir a la diapositiva 1, ...)
+for (let n = 1; n <= 6; n++) {
+  ES_EN[n + ' de 6'] = n + ' of 6';
+  ES_EN['Ir a la diapositiva ' + n] = 'Go to slide ' + n;
+}
+Object.assign(ES_EN, {
+  'Medicamentos con el registro al día': 'Medicines with up-to-date registration',
+  'Preparamos el expediente de tu producto farmacéutico y damos seguimiento hasta su aprobación.': 'We prepare the dossier for your pharmaceutical product and follow up until it is approved.',
+  'Dispositivos médicos con ruta clara': 'Medical devices with a clear pathway',
+  'Clasificamos tu dispositivo y reunimos la documentación técnica que exige la autoridad.': 'We classify your device and gather the technical documentation the authority requires.',
+  'Cosméticos listos para el mercado': 'Cosmetics ready for the market',
+  'Revisamos fórmulas, rotulado y documentación antes de que tu producto salga a la venta.': 'We review formulas, labeling and documentation before your product goes on sale.',
+  'Blísteres de comprimidos y frascos blancos junto a un matraz de laboratorio sobre una mesa clara': 'Blister packs of tablets and white bottles next to a laboratory flask on a light table',
+  'Tensiómetro, estetoscopio, termómetro y jeringas ordenados sobre una mesa blanca en una sala clínica': 'Blood pressure monitor, stethoscope, thermometer and syringes arranged on a white table in a clinical room',
+  'Manos de una profesional firmando un expediente, con un computador portátil al fondo': 'Hands of a professional signing a dossier, with a laptop in the background',
+  'Tres profesionales conversando alrededor de una mesa con documentos y un computador portátil': 'Three professionals talking around a table with documents and a laptop',
+  'Solicitar una cotización': 'Request a quote'
+});
 
 const MENSAJE_WHATSAPP = {
   es: 'Hola, quiero consultar por el registro de un producto',
