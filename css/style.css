@@ -216,6 +216,19 @@ form .boton:disabled { opacity: .6; cursor: wait; }
 .pie nav a:hover { color: var(--aqua); text-decoration: underline; }
 .pie p { margin: 0; font-size: .92rem; }
 
+/* ============ Botón flotante de WhatsApp ============ */
+.wa-flotante {
+  position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 60;
+  display: flex; align-items: center; gap: .6rem;
+  background: var(--verde); color: #fff; text-decoration: none; font-weight: 600;
+  padding: .85rem 1.25rem; border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(15, 42, 61, .28);
+  transition: background-color .2s, transform .2s;
+}
+.wa-flotante svg { width: 24px; height: 24px; flex: none; }
+.wa-flotante:hover { background: var(--marino); color: #fff; transform: translateY(-2px); }
+.wa-flotante:focus-visible { outline-color: var(--aqua); }
+
 /* ============ Móvil ============ */
 @media (max-width: 860px) {
   .menu-boton { display: inline-block; }
@@ -232,6 +245,8 @@ form .boton:disabled { opacity: .6; cursor: wait; }
   .slide-visual { height: 280px; }
 }
 @media (max-width: 520px) {
+  .wa-flotante { right: 1rem; bottom: 1rem; padding: .9rem; }
+  .wa-flotante span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .perfil { grid-template-columns: 1fr; }
   .foto { width: 96px; height: 96px; font-size: 2rem; }
   .servicios li { gap: 1rem; }
