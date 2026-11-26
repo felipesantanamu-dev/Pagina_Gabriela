@@ -11,6 +11,13 @@ $correo_remitente = 'contacto@tudominio.cl';    // Un correo de TU dominio (mejo
 
 header('Content-Type: application/json; charset=utf-8');
 
+// Idioma de las respuestas: español por defecto, inglés si la página lo envía
+$en = (($_POST['idioma'] ?? '') === 'en');
+function t($es, $ingles) {
+    global $en;
+    return $en ? $ingles : $es;
+}
+
 function responder($ok, $mensaje, $codigo = 200) {
     http_response_code($codigo);
     echo json_encode(['ok' => $ok, 'mensaje' => $mensaje], JSON_UNESCAPED_UNICODE);
@@ -18,12 +25,12 @@ function responder($ok, $mensaje, $codigo = 200) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    responder(false, 'Método no permitido.', 405);
+    responder(false, t('Método no permitido.', 'Method not allowed.'), 405);
 }
 
 // Campo trampa: si un robot lo llena, fingimos éxito y no enviamos nada
 if (!empty($_POST['sitio'])) {
-    responder(true, 'Mensaje enviado.');
+    responder(true, t('Mensaje enviado.', 'Message sent.'));
 }
 
 $nombre  = trim($_POST['nombre']  ?? '');
@@ -35,11 +42,11 @@ $nombre = str_replace(["\r", "\n"], ' ', $nombre);
 $correo = str_replace(["\r", "\n"], '', $correo);
 
 if ($nombre === '' || $mensaje === '' || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-    responder(false, 'Revisa que todos los campos estén completos y el correo sea válido.', 400);
+    responder(false, t('Revisa que todos los campos estén completos y el correo sea válido.', 'Check that all fields are filled in and the email is valid.'), 400);
 }
 
 if (mb_strlen($nombre) > 100 || mb_strlen($mensaje) > 3000) {
-    responder(false, 'El mensaje o el nombre es demasiado largo.', 400);
+    responder(false, t('El mensaje o el nombre es demasiado largo.', 'The message or the name is too long.'), 400);
 }
 
 $asunto = 'Nuevo mensaje desde la página web - ' . $nombre;
@@ -56,7 +63,7 @@ $cabeceras .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $asunto_codificado = '=?UTF-8?B?' . base64_encode($asunto) . '?=';
 
 if (mail($correo_destino, $asunto_codificado, $cuerpo, $cabeceras)) {
-    responder(true, '¡Gracias! Tu mensaje fue enviado. Te responderé pronto.');
+    responder(true, t('¡Gracias! Tu mensaje fue enviado. Te responderé pronto.', 'Thank you! Your message was sent. We will reply soon.'));
 }
 
-responder(false, 'No se pudo enviar el mensaje. Inténtalo de nuevo más tarde.', 500);
+responder(false, t('No se pudo enviar el mensaje. Inténtalo de nuevo más tarde.', 'The message could not be sent. Please try again later.'), 500);
