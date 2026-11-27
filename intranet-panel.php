@@ -40,7 +40,7 @@ $csrf   = htmlspecialchars($_SESSION['csrf'], ENT_QUOTES, 'UTF-8');
     } catch (e) {}
   </script>
   <link rel="icon" href="assets/logo-simbolo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body id="top">
 
@@ -100,6 +100,6 @@ $csrf   = htmlspecialchars($_SESSION['csrf'], ENT_QUOTES, 'UTF-8');
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

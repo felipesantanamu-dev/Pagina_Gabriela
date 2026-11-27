@@ -302,10 +302,12 @@ form .boton:disabled { opacity: .6; cursor: wait; }
 .hex {
   position: absolute; left: var(--x); top: var(--y); width: var(--t); height: var(--t);
   margin: calc(var(--t) / -2) 0 0 calc(var(--t) / -2);
-  fill: none; stroke: var(--c); stroke-width: 2; stroke-linejoin: round; opacity: var(--o);
+  opacity: var(--o);
   animation: flotar var(--d) ease-in-out var(--r) infinite alternate;
 }
-.hex-lleno { fill: var(--c); stroke: none; opacity: calc(var(--o) * .6); }
+.hex path { fill: none; stroke: var(--c); stroke-width: 2; stroke-linejoin: round; }
+.hex-lleno { opacity: calc(var(--o) * .6); }
+.hex-lleno path { fill: var(--c); stroke: none; }
 [data-tema="oscuro"] .hex { opacity: calc(var(--o) * .7); }
 @keyframes flotar {
   from { transform: translate(-28px, 34px) rotate(-14deg); }
