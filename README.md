@@ -50,3 +50,13 @@ El envío del correo solo se puede probar con la página publicada en un hosting
 ## Fotos
 
 Las fotos del carrusel son de [Pexels](https://www.pexels.com) (licencia gratuita, uso comercial permitido): autores pnw-prod, artempodrez y chokniti-khongchum.
+
+## Intranet
+
+- `intranet.html`: página de acceso (mismo estilo del sitio, con idioma y modo noche).
+- `intranet-login.php`: valida el correo y la contraseña y abre la sesión. Bloquea 5 minutos tras 5 intentos fallidos.
+- `intranet-panel.php`: panel interno; solo se ve con la sesión iniciada. Aquí se agregan los documentos y herramientas.
+- `intranet-config.php`: lista de usuarios. Guarda solo el *hash* de la contraseña, nunca la contraseña.
+  Para crear un hash: `php -r "echo password_hash('LaContraseñaElegida', PASSWORD_DEFAULT);"`
+
+Requiere un hosting con PHP y, de preferencia, HTTPS. Mientras `intranet-config.php` no tenga usuarios, nadie puede ingresar.
